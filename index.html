@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Riones · Paket Hampers</title>
+  <meta name="description" content="Ringkasan paket hampers Studio Riones: Paket Hutan, Paket Awan, dan Paket Laut.">
+  <meta name="theme-color" content="#4A583A">
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Cadangan minimal: kartu paket tetap rapi walau style.css belum ke-load. */
+    body { font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+    h1, h2, h3 { font-family: Fraunces, Georgia, "Times New Roman", serif; font-weight: 500; }
+    table, input { font-variant-numeric: tabular-nums; }
+    .pkg-list { display: flex; flex-direction: column; gap: 24px; }
+    .pkg-row { position: relative; background: #FBF8F1; border: 1px solid #ddd3bf; border-radius: 14px; padding: 20px 22px; box-shadow: 0 2px 10px rgba(74, 88, 58, .06); }
+    .pkg-content { display: block; }
+    .pkg-table { width: 100%; min-width: 0; overflow-x: auto; }
+    @media (max-width: 640px) { .pkg-table { overflow-x: auto; } }
+  </style>
+  <link rel="stylesheet" href="style.css?v=29">
+  <script src="gate.js?v=29"></script>
+</head>
+<body class="landing">
+  <header class="hero">
+    <div class="wrap">
+      <a class="brand-logo" href="./" aria-label="Studio Riones">
+        <img src="images/logo-studio-riones.png" alt="Studio Riones" width="56" height="62">
+      </a>
+      <h1>Paket Hampers</h1>
+      <p class="lead">Ringkasan modal, harga jual, dan margin tiap paket. Buka halaman detail untuk mengatur isi, harga satuan, dan kemasan.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="pkg-list">
+      <article class="pkg-row is-active" id="card-sore">
+        <a class="see-details" href="hutan.html">See details <span aria-hidden="true">→</span></a>
+        <div class="pkg-head">
+          <p class="pkg-kicker">Olive · fluting halus</p>
+          <h2>Paket Hutan</h2>
+          <p class="pkg-desc">Desain kalem dengan garis fluting halus berwarna olive, rapi dan teduh seperti suasana hutan.</p>
+          <p class="pkg-desc"><strong>Cocok untuk:</strong> rekan kerja, atasan, klien, atau teman yang menyukai dekorasi minimalis dan barang yang tetap terpakai sehari-hari.</p>
+        </div>
+        <div class="pkg-content">
+          <div class="pkg-table">
+            <table class="mini-table dual" id="sore-summary">
+              <thead>
+                <tr class="grp"><th rowspan="2" class="col-pkg">Paket</th><th colspan="3" class="g-start">No food</th><th colspan="3" class="g-start">Food</th></tr>
+                <tr><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Waktu</th><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Waktu</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <p class="pkg-note" id="sore-note"></p>
+      </article>
+
+      <article class="pkg-row is-soon" aria-disabled="true">
+        <span class="soon-badge">Segera hadir</span>
+        <div class="pkg-head">
+          <p class="pkg-kicker">Rib tebal · membulat</p>
+          <h2>Paket Awan</h2>
+          <p class="pkg-desc">Desain empuk dengan rib tebal yang membulat, berkesan lembut, playful, dan menggemaskan seperti awan. Isi dan harga masih disiapkan.</p>
+          <p class="pkg-desc"><strong>Cocok untuk:</strong> sahabat, pasangan, adik, kado ulang tahun, atau bagi yang menyukai barang lucu.</p>
+        </div>
+        <div class="pkg-content">
+          <div class="pkg-table">
+            <table class="mini-table dual">
+              <thead>
+                <tr class="grp"><th rowspan="2" class="col-pkg">Paket</th><th colspan="3" class="g-start">No food</th><th colspan="3" class="g-start">Food</th></tr>
+                <tr><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Waktu</th><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Waktu</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Kecil</td><td class="g-start"></td><td>—</td><td>—</td><td class="g-start"></td><td>—</td><td>—</td></tr>
+                <tr><td>Sedang</td><td class="g-start"></td><td>—</td><td>—</td><td class="g-start"></td><td>—</td><td>—</td></tr>
+                <tr><td>Besar</td><td class="g-start"></td><td>—</td><td>—</td><td class="g-start"></td><td>—</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="pkg-note">Segera hadir.</p>
+      </article>
+
+      <article class="pkg-row is-soon" aria-disabled="true">
+        <span class="soon-badge">Segera hadir</span>
+        <div class="pkg-head">
+          <p class="pkg-kicker">Lengkung ombak · organik</p>
+          <h2>Paket Laut</h2>
+          <p class="pkg-desc">Desain dengan lengkung bergelombang yang mengalir, terasa tenang, segar, dan artsy seperti ombak. Isi dan harga masih disiapkan.</p>
+          <p class="pkg-desc"><strong>Cocok untuk:</strong> bagi yang menyukai desain unik dan artistik, kado housewarming, atau untuk mengucapkan terima kasih.</p>
+        </div>
+        <div class="pkg-content">
+          <div class="pkg-table">
+            <table class="mini-table dual">
+              <thead>
+                <tr class="grp"><th rowspan="2" class="col-pkg">Paket</th><th colspan="3" class="g-start">No food</th><th colspan="3" class="g-start">Food</th></tr>
+                <tr><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Waktu</th><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Waktu</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Kecil</td><td class="g-start"></td><td>—</td><td>—</td><td class="g-start"></td><td>—</td><td>—</td></tr>
+                <tr><td>Sedang</td><td class="g-start"></td><td>—</td><td>—</td><td class="g-start"></td><td>—</td><td>—</td></tr>
+                <tr><td>Besar</td><td class="g-start"></td><td>—</td><td>—</td><td class="g-start"></td><td>—</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="pkg-note">Segera hadir.</p>
+      </article>
+    </div>
+
+  </main>
+
+  <footer class="wrap footer">Studio Riones · Paket Hampers</footer>
+  <script src="app.js?v=29"></script>
+  <script src="landing.js?v=29"></script>
+</body>
+</html>

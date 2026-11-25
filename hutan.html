@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paket Hutan · Kalkulator · Studio Riones</title>
+  <meta name="description" content="Kalkulator modal dan harga jual paket hampers Hutan, Studio Riones.">
+  <meta name="theme-color" content="#4A583A">
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=29">
+  <script src="gate.js?v=29"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <a class="back-link" href="./">← Semua paket</a>
+      <div class="hero-brand">
+        <a class="brand-logo" href="./" aria-label="Studio Riones">
+          <img src="images/logo-studio-riones.png" alt="Studio Riones" width="56" height="62">
+        </a>
+        <p class="brand">Kalkulator Paket Hutan</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="pkg-row is-active summary-top" aria-labelledby="ringkasan-h">
+      <div class="pkg-head">
+        <h2 id="ringkasan-h">Ringkasan Paket Hutan</h2>
+      </div>
+      <div class="pkg-content">
+        <div class="pkg-table">
+          <table class="mini-table dual" id="sore-summary">
+            <thead>
+              <tr class="grp"><th rowspan="2" class="col-pkg">Paket</th><th colspan="4" class="g-start">No food</th><th colspan="4" class="g-start">Food</th></tr>
+              <tr><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Modal</th><th>Waktu</th><th class="g-start sum-thumbs-hd"></th><th>Harga jual</th><th>Modal</th><th>Waktu</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Isi paket</h2>
+      <div class="seg" role="group" aria-label="Jenis paket">
+        <button type="button" data-mode="nf">No food</button>
+        <button type="button" data-mode="food">Food</button>
+      </div>
+      <p>Centang barang yang masuk, lalu atur jumlahnya. Harga jual bawaan masih menggunakan harga manual yang sudah dipakai di visual. Pilih Target margin apabila ingin dibulatkan secara otomatis ke angka ...9.000 sesuai target di atas.</p>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section class="section print-section">
+      <div class="section-head print-head">
+        <div class="print-head-text">
+          <h2>Harga satuan cetak</h2>
+          <p class="caption">Sudah termasuk filamen, listrik 80 W, dan 10 persen cadangan gagal.</p>
+        </div>
+        <div id="pla-field" class="field pla-field"></div>
+      </div>
+      <div id="print-fields" class="print-tiles"></div>
+    </section>
+
+    <section class="section price-section" aria-labelledby="kue-h">
+      <div class="section-head">
+        <div>
+          <h2 id="kue-h">Harga satuan kue</h2>
+          <p class="caption">Harga kue dr cookies per toples 500 ml (toples sudah termasuk).</p>
+        </div>
+      </div>
+      <div id="food-fields" class="print-tiles"></div>
+    </section>
+
+    <section class="section price-section" aria-labelledby="kemasan-h">
+      <div class="section-head">
+        <div>
+          <h2 id="kemasan-h">Harga satuan kemasan</h2>
+          <p class="caption">Harga box dan kemasan dari toko. Klik nama untuk membuka halaman toko. Harga dapat diubah apabila terjadi perubahan.</p>
+        </div>
+      </div>
+      <div id="pack-fields" class="print-tiles"></div>
+    </section>
+
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Asumsi hitungan</h2>
+        <div class="head-actions">
+          <span id="save-status" class="save-status" aria-live="polite"></span>
+          <button id="reset" type="button" class="btn">Reset ke default</button>
+        </div>
+      </div>
+      <div id="asumsi-fields"></div>
+    </section>
+  </main>
+
+  <footer class="wrap footer"><a href="./">← Kembali ke semua paket</a> · Studio Riones · Kalkulator Paket Hutan</footer>
+  <script src="app.js?v=29"></script>
+</body>
+</html>
