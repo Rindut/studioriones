@@ -47,6 +47,8 @@
   var TOTE = "https://www.tokopedia.com/lestarisby-/paper-bag-polos-kantong-souvenir-dan-kue-r6-20x10x25-cm";
   var CELLO = "https://www.tokopedia.com/berlian90/plastik-parcel-polos-80x100-cm-plastik-bening-parsel-pastik-opp-parcel";
   var EXTRAS = "https://www.tokopedia.com/payperinkbsd/200-gr-shredded-paper-kertas-potong-cream-natural-crinkle-cut";
+  var TGI_BAG = "https://www.tokopedia.com/tokogrosiridofficial/tgi-plastic-bag-souvenir-transparant-goodie-bag-hampers-polos-tas-mika-pp-hadiah-transparan-putih-bening-1729999259097336521?extParam=ivf%3Dfalse%26keyword%3Dplastik+hampers+transparan%26search_id%3D20261126000848B9228E0962A78B318QZ7%26src%3Dsearch";
+  var TGI_MIKA = "https://www.tokopedia.com/tokogrosiridofficial/tgi-paper-bag-mika-hampers-bouquet-bag-flower-goodie-bag-mika-warna-pink-putih-polos-hadiah-tali-untai-1729998642543889097?extParam=src%3Dshop%26whid%3D12119967&aff_unique_id=&channel=others&chain_key=";
 
   var PACK_ITEMS = [
     { id: "mnop", desc: "43×33×16 cm · Tokopedia", image: "images/pack-mnop.jpg", name: "Mnop Kotak Kado JB 10", note: "43×33×16 cm, Rp55.900. Pohon 16,5 cm muat berdiri.", href: MNOP, site: "Tokopedia · Mnop Store" , tray: "yes" },
@@ -62,6 +64,9 @@
     { id: "window", desc: "25×25×12 cm · Felice · min. 5, incl. pita+kartu", image: "images/pack-window-box.jpg", name: "Window box", note: "Hardbox mika 25×25×12 cm, Rp14.720/pcs, minimal 5, sudah termasuk pita dan kartu (warna pita acak).", href: WINDOW, site: "Tokopedia · Felice Cake Box" , tray: "yes" },
     { id: "premium", desc: "25×20×8 cm · Luxe Box", image: "images/pack-magnetic-box.jpg", name: "Premium magnetic box", note: "Hardbox magnet 25×20×8 cm, Rp45.500/pcs. Ada warna putih dan hijau emerald.", href: PREMIUM, site: "Tokopedia · Luxe Box" , tray: "yes" },
     { id: "tote", desc: "20×10×25 cm · Lestari Jaya · Rp1.625/pcs (isi 12)", image: "images/pack-tote-bag.jpg", name: "Tote bag", note: "Paper bag kraft R6 20×10×25 cm, Rp19.500 isi 12 (≈ Rp1.625/pcs).", href: TOTE, site: "Tokopedia · Lestari Jaya Surabaya" , tray: "no" },
+    { id: "tgiBag315", desc: "31,5×15,5×40,5 cm · PP doff · Tokopedia", image: "images/pack-tgi-bag-31.jpg", name: "TGI Plastic Bag Souvenir Transparan (PP doff, tali kulit) 31,5×15,5×40,5 cm", note: "Plastik PP doff/buram (putih susu), isi hanya terlihat samar. Semua muat dengan longgar, termasuk toples kue dan tray; pohon 16,5 cm dapat berdiri. Direkomendasikan untuk paket Besar. Harga pack Rp97.210 isi 6 (Tokopedia, harga Kejar Diskon per 26 November 2026), ≈ Rp16.202 per tas.", href: TGI_BAG, site: "Tokopedia · Toko Grosir ID Official" , tray: "yes" },
+    { id: "tgiMika25", desc: "25×15×35 cm · putih · jendela mika · Tokopedia", image: "images/pack-tgi-mika-25.jpg", name: "TGI Paper Bag Mika Hampers Putih 25×15×35 cm", note: "Isi terlihat jelas melalui jendela mika. Tray 19,7 cm muat direbahkan (kedalaman tas 15 cm), pohon 16,5 cm dapat berdiri, toples kue muat. Direkomendasikan untuk paket Sedang dan Besar. Harga pack Rp69.681 isi 6 (Tokopedia, harga Kejar Diskon per 26 November 2026), ≈ Rp11.614 per tas.", href: TGI_MIKA, site: "Tokopedia · Toko Grosir ID Official" , tray: "yes" },
+    { id: "tgiMika20", desc: "20×15×30 cm · putih · jendela mika · Tokopedia", image: "images/pack-tgi-mika-20.jpg", name: "TGI Paper Bag Mika Hampers Putih 20×15×30 cm", note: "Tray muat, tetapi mepet (sisa sekitar 3 mm); pohon dapat berdiri. Harga pack Rp57.270 isi 6 (Tokopedia, harga Kejar Diskon per 26 November 2026), ≈ Rp9.545 per tas.", href: TGI_MIKA, site: "Tokopedia · Toko Grosir ID Official" , tray: "pas" },
     { id: "extras", desc: "Rp11.700 per paket · 1 bungkus 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk", image: "images/pack-extras-crinkle.jpg", name: "Ekstra (tissue, kartu, pita)", note: "Rp11.700 per paket (1 bungkus crinkle cream 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk). Link tile ke listing crinkle.", href: EXTRAS, site: "Tokopedia · payperink.bsd" , tray: null }
   ];
 
@@ -72,7 +77,8 @@
     pack: {
       mnop: 55900, graciaExclusive: 90422, graciaJendela: 60745,
       b1bCube12: 10150, b1bSquare20: 13400, b1bSquare25: 18800, b1bGiftBag20: 11600, b1bBlurryL: 14700, cellophane: 2922,
-      kraft: 1150, window: 14720, premium: 45500, tote: 1625, extras: 11700
+      kraft: 1150, window: 14720, premium: 45500, tote: 1625,
+      tgiBag315: 16202, tgiMika25: 11614, tgiMika20: 9545, extras: 11700
     },
     // Centang Lisensi per item cetak (phone stand + clip berbagi satu lisensi yekta).
     licOn: { sabre: true, yekta: true, egg: true, myro: true },

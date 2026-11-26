@@ -1,6 +1,6 @@
 # Handoff · Kalkulator Studio Riones
 
-Catatan serah terima buat siapa pun (orang atau bot) yang lanjutin project ini. Status per 25 Nov 2026, versi aset `?v=34`.
+Catatan serah terima buat siapa pun (orang atau bot) yang lanjutin project ini. Status per 26 Nov 2026, versi aset `?v=35`.
 
 ## 1. Tujuan project
 
@@ -19,7 +19,7 @@ python3 -m http.server 8000
 
 - Landing page: http://localhost:8000
 - Detail Paket Hutan: http://localhost:8000/hutan.html (`sore.html` otomatis redirect ke sini)
-- CSS/JS dipanggil pakai `?v=N` (sekarang **`?v=34`**) biar cache browser nggak nyangkut. Tiap kali `style.css`, `app.js`, `landing.js`, atau `gate.js` diubah, naikin angkanya di `index.html` **dan** `hutan.html`.
+- CSS/JS dipanggil pakai `?v=N` (sekarang **`?v=35`**) biar cache browser nggak nyangkut. Tiap kali `style.css`, `app.js`, `landing.js`, atau `gate.js` diubah, naikin angkanya di `index.html` **dan** `hutan.html`.
 - Ada gerbang kata sandi (`gate.js`, password **1616**, disimpan di `sessionStorage` key `studio-riones-gate`) di `index.html` dan `hutan.html`. Ini cek di browser doang, bukan proteksi server.
 - Kalau tampilannya masih versi lama: hard refresh `Cmd+Shift+R` (Mac) atau `Ctrl+Shift+R` (Windows).
 - Data isian disimpan di `localStorage` browser (key `studio-riones-kalkulator-v1`). Tombol **Reset ke default** ngapus data itu.
@@ -154,7 +154,7 @@ Ringkasan default (kelompok **No food di kiri, Food di kanan**). Di **hutan.html
 - Terus: `cd /workspace/srk-notes && for t in redir22 test10 test12 test-popup test-sore test-landing2 links13 align16 tiles17 lic17; do node $t.js; done`
 - Cakupannya: angka default Ringkasan, sinkron landing ↔ detail, harga filamen per kg, popup pilih barang, simpan & reset, tile kue/kemasan + link, checkbox lisensi, redirect `sore.html`, migrasi data lama, gerbang kata sandi, dan nggak ada overflow di HP.
 - Tes harus unlock gerbang dulu (`sessionStorage` `studio-riones-gate` = `1` lewat `addInitScript`). Jangan anggap lulus kalau tes masih ketahan di layar password.
-- Status terakhir: **semua lulus** (v=34). v29 juga: bahasa formal di semua teks menghadap user, logo+favicon, thumbnail landing 56px, margin di bawah modal, gerbang password 1616, dan tampilan HP dirapikan. v30: di tile kemasan ada tanda Muat tray / Tidak muat tray / Muat tray (pas) di bawah foto (Ekstra tanpa tanda). v31: sinkron Google Sheet (kalau config diisi), logo header transparan krem, aksen kuning matahari yang halus. v32: judul site jadi **Ruang Racik** (bukan Paket Hampers). Logo gerbang dan favicon pakai versi terracotta (garis rumah #C26A4A). v33: logo dan judul sejajar di header olive; logo header pakai versi terracotta di lencana krem (#F3EDE2); deskripsi formal dipindah ke atas kartu paket di halaman awal (bukan di dalam header). v34: sinkron Google Sheet diaktifkan di `config.js`. Sheet masih kosong, jadi pemilik harus membuka site dulu dari browser yang sudah berisi isian paketnya, supaya data itu yang terunggah sebagai data bersama.
+- Status terakhir: **semua lulus** (v=35). v35: tiga kemasan baru dari Toko Grosir ID Official — TGI Plastic Bag Souvenir Transparan 31,5×15,5×40,5 cm (Rp16.202 per tas, pack Rp97.210 isi 6), TGI Paper Bag Mika Hampers Putih 25×15×35 cm (Rp11.614 per tas, pack Rp69.681 isi 6), dan Putih 20×15×30 cm (Rp9.545 per tas, pack Rp57.270 isi 6). Harga dari halaman Tokopedia (Kejar Diskon) per 26 November 2026. v29 juga: bahasa formal di semua teks menghadap user, logo+favicon, thumbnail landing 56px, margin di bawah modal, gerbang password 1616, dan tampilan HP dirapikan. v30: di tile kemasan ada tanda Muat tray / Tidak muat tray / Muat tray (pas) di bawah foto (Ekstra tanpa tanda). v31: sinkron Google Sheet (kalau config diisi), logo header transparan krem, aksen kuning matahari yang halus. v32: judul site jadi **Ruang Racik** (bukan Paket Hampers). Logo gerbang dan favicon pakai versi terracotta (garis rumah #C26A4A). v33: logo dan judul sejajar di header olive; logo header pakai versi terracotta di lencana krem (#F3EDE2); deskripsi formal dipindah ke atas kartu paket di halaman awal (bukan di dalam header). v34: sinkron Google Sheet diaktifkan di `config.js`. Sheet masih kosong, jadi pemilik harus membuka site dulu dari browser yang sudah berisi isian paketnya, supaya data itu yang terunggah sebagai data bersama.
 
 ## 9. Yang masih terbuka
 
