@@ -1,9 +1,11 @@
-# Paket Hampers · Studio Riones
+# Ruang Racik · Studio Riones
 
 Site statis berisi landing page paket hampers Studio Riones dan kalkulator modal/harga jual **Paket Hutan** (Food / No food).
 Tidak ada build step dan tidak perlu install apa-apa.
 
 Sebelum landing dan halaman detail, ada layar kata sandi (`1616`). Pengecekan hanya di browser (situs ini statis). Logo Studio Riones tampil di layar itu, di header, dan sebagai ikon tab.
+
+Isian paket bisa disinkronkan lewat Google Sheet agar beberapa orang melihat data yang sama. Secara bawaan sinkronisasi nonaktif (`config.js` kosong) dan data tetap hanya di browser. Langkah setup ada di `SETUP-GOOGLE-SHEET.md`.
 
 - **Landing page** (`index.html`): 3 baris ringkasan, Paket Hutan, Paket Awan, Paket Laut, disusun dari atas ke bawah. Tiap baris punya kotak gambar di kiri (setinggi tabel) dan satu tabel Kecil/Sedang/Besar di kanan yang menampilkan **Food** dan **No food** sekaligus (masing-masing Modal, Harga jual, Margin). Di HP tabelnya bisa digeser ke samping. Saat ini baru Paket Hutan yang aktif dan punya tombol **See details** di pojok kanan atas; Awan dan Laut bertanda *Segera hadir* dengan kotak *No images*.
 - **Detail Paket Hutan** (`hutan.html`): kalkulator lengkap. Dulu namanya Paket Sore; `sore.html` sekarang cuma redirect ke `hutan.html`, dan data yang tersimpan di browser tetap kebaca. Ada tombol **← Semua paket** di header buat balik ke landing.
@@ -19,6 +21,10 @@ style.css      tampilan (krem + olive, mobile-friendly), dipakai kedua halaman
 app.js         data barang, rumus, dan logika kalkulator (dipakai kedua halaman)
 landing.js     isi tabel ringkasan di landing page
 gate.js        layar kata sandi (1616) sebelum landing dan halaman detail
+config.js      URL dan token sinkronisasi (kosong = nonaktif)
+sync.js        baca/tulis data bersama ke Google Sheet
+apps-script/   Code.gs untuk Web app Google Apps Script
+SETUP-GOOGLE-SHEET.md  panduan setup data bersama
 images/        foto cetakan, kue, kemasan, logo, favicon, dan Apple touch icon
 favicon.svg    ikon lama (tab sekarang memakai images/favicon.png)
 .nojekyll      biar aman kalau suatu saat dipasang di GitHub Pages
@@ -122,5 +128,5 @@ Teks kartu Paket Awan dan Paket Laut ada di `index.html`. Kalau paketnya sudah s
 ## Catatan
 
 - Kue dr cookies yang dipakai: Florentine Cookies Rp65.000, Lidah Kucing Matcha Rp65.000, Cheese Stick Cheddar Rp35.000 (semua toples 500 ml), Cheese Stick Cheddar Pouch (18×26 cm) Rp35.000. Lisensi egg cup dan izin coaster myro (CC BY-NC) masih perlu dikonfirmasi.
-- Cellophane (plastik OPP 80×100) default Rp2.922/lembar (Rp73.062 isi 25). Ekstra (tissue, kartu, pita) default Rp11.700 per paket (1 bungkus crinkle 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk). Paket default belum memasukkan item extras.
+- Cellophane (plastik OPP 80×100) default Rp2.922/lembar (Rp73.062 isi 25). Ekstra (tissue, kartu, pita) default Rp11.700 per paket (1 bungkus crinkle 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk). Paket default belum memasukkan item extras. Di tile kemasan, tanda di bawah foto menyatakan apakah tray oval (19,7 × 12,3 cm) muat (termasuk posisi ditidurkan).
 - PLA tidak food-safe; kue tetap di toples PET dr cookies.

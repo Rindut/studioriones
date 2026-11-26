@@ -49,20 +49,20 @@
   var EXTRAS = "https://www.tokopedia.com/payperinkbsd/200-gr-shredded-paper-kertas-potong-cream-natural-crinkle-cut";
 
   var PACK_ITEMS = [
-    { id: "mnop", desc: "43×33×16 cm · Tokopedia", image: "images/pack-mnop.jpg", name: "Mnop Kotak Kado JB 10", note: "43×33×16 cm, Rp55.900. Pohon 16,5 cm muat berdiri.", href: MNOP, site: "Tokopedia · Mnop Store" },
-    { id: "graciaExclusive", desc: "30×25×12 cm · Tokopedia", image: "images/pack-gracia-exclusive.jpg", name: "Gracia Box Hard Box Exclusive", note: "30×25×12 cm, Rp90.422, toko Tangerang Selatan. Pohon 16,5 cm harus ditidurkan.", href: GR_EX, site: "Tokopedia · Gracia Box, Tangerang Selatan" },
-    { id: "graciaJendela", desc: "25×20×12 cm · Tokopedia", image: "images/pack-gracia-jendela.jpg", name: "Gracia Box Hardbox Jendela", note: "25×20×12 cm, Rp60.745, toko Tangerang Selatan. Pohon 16,5 cm harus ditidurkan.", href: GR_JE, site: "Tokopedia · Gracia Box, Tangerang Selatan" },
-    { id: "b1bCube12", desc: "12×12×12 cm · mika · Shopee", image: "images/pack-b1b-cube.jpg", name: "B1B Clear Cube Bloom Box 12×12×12", note: "Mika bening, Rp10.150. Sesuai untuk NF Kecil (coaster Ø10 cm masih muat). Min. order 2 pcs.", href: B1B_CUBE, site: "Shopee · B1B Store" },
-    { id: "b1bSquare20", desc: "20×9×20 cm · mika · Shopee", image: "images/pack-b1b-square-bloom.jpg", name: "B1B Clear Square Bloom Box 20×9×20", note: "Mika bening, Rp13.400. Cocok untuk NF Sedang atau Kecil Food. Dalam 9 cm, tray 12,3 cm tidak muat.", href: B1B_SQUARE, site: "Shopee · B1B Store" },
-    { id: "b1bSquare25", desc: "25×10×25 cm · mika · Shopee", image: "images/pack-b1b-square-bloom.jpg", name: "B1B Clear Square Bloom Box 25×10×25", note: "Mika bening, Rp18.800. Dalam 10 cm, toples dan tray kemungkinan terlalu sempit.", href: B1B_SQUARE, site: "Shopee · B1B Store" },
-    { id: "b1bGiftBag20", desc: "20×20×20 cm · jendela bening · Shopee", image: "images/pack-b1b-gift-bag.jpg", name: "B1B Square Clear Gift Bag 20×20×20", note: "Art paper dengan jendela bening, Rp11.600. Tray 19,7 cm muat, tetapi sangat pas (~3 mm); pohon dapat berdiri.", href: B1B_GIFTBAG, site: "Shopee · B1B Store" },
-    { id: "b1bBlurryL", desc: "23×13×27 cm · doff · Shopee", image: "images/pack-b1b-blurry.jpg", name: "B1B Blurry Round Handle Large 23×13×27", note: "Buram (doff), Rp14.700. Tray muat, pohon berdiri, tetapi isi hanya terlihat samar.", href: B1B_BLURRY, site: "Shopee · B1B Store" },
-    { id: "cellophane", desc: "80×100 cm · Berlian 90 · Rp2.922/lembar (isi 25)", image: "images/pack-cellophane.jpg", name: "Cellophane (plastik OPP)", note: "Plastik OPP 80×100 cm, Rp73.062 isi 25 (≈ Rp2.922/lembar). Bukan set plus pita.", href: CELLO, site: "Tokopedia · Plastik Opp Berlian 90" },
-    { id: "kraft", desc: "18×26 cm · Nusantara Packing", image: "images/pack-kraft-pouch.jpg", name: "Kraft pouch", note: "Standing pouch kraft window ziplock 18×26 cm, Rp1.150/pcs.", href: KRAFT, site: "Tokopedia · Nusantara Packing Indo" },
-    { id: "window", desc: "25×25×12 cm · Felice · min. 5, incl. pita+kartu", image: "images/pack-window-box.jpg", name: "Window box", note: "Hardbox mika 25×25×12 cm, Rp14.720/pcs, minimal 5, sudah termasuk pita dan kartu (warna pita acak).", href: WINDOW, site: "Tokopedia · Felice Cake Box" },
-    { id: "premium", desc: "25×20×8 cm · Luxe Box", image: "images/pack-magnetic-box.jpg", name: "Premium magnetic box", note: "Hardbox magnet 25×20×8 cm, Rp45.500/pcs. Ada warna putih dan hijau emerald.", href: PREMIUM, site: "Tokopedia · Luxe Box" },
-    { id: "tote", desc: "20×10×25 cm · Lestari Jaya · Rp1.625/pcs (isi 12)", image: "images/pack-tote-bag.jpg", name: "Tote bag", note: "Paper bag kraft R6 20×10×25 cm, Rp19.500 isi 12 (≈ Rp1.625/pcs).", href: TOTE, site: "Tokopedia · Lestari Jaya Surabaya" },
-    { id: "extras", desc: "Rp11.700 per paket · 1 bungkus 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk", image: "images/pack-extras-crinkle.jpg", name: "Ekstra (tissue, kartu, pita)", note: "Rp11.700 per paket (1 bungkus crinkle cream 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk). Link tile ke listing crinkle.", href: EXTRAS, site: "Tokopedia · payperink.bsd" }
+    { id: "mnop", desc: "43×33×16 cm · Tokopedia", image: "images/pack-mnop.jpg", name: "Mnop Kotak Kado JB 10", note: "43×33×16 cm, Rp55.900. Pohon 16,5 cm muat berdiri.", href: MNOP, site: "Tokopedia · Mnop Store" , tray: "yes" },
+    { id: "graciaExclusive", desc: "30×25×12 cm · Tokopedia", image: "images/pack-gracia-exclusive.jpg", name: "Gracia Box Hard Box Exclusive", note: "30×25×12 cm, Rp90.422, toko Tangerang Selatan. Pohon 16,5 cm harus ditidurkan.", href: GR_EX, site: "Tokopedia · Gracia Box, Tangerang Selatan" , tray: "yes" },
+    { id: "graciaJendela", desc: "25×20×12 cm · Tokopedia", image: "images/pack-gracia-jendela.jpg", name: "Gracia Box Hardbox Jendela", note: "25×20×12 cm, Rp60.745, toko Tangerang Selatan. Pohon 16,5 cm harus ditidurkan.", href: GR_JE, site: "Tokopedia · Gracia Box, Tangerang Selatan" , tray: "yes" },
+    { id: "b1bCube12", desc: "12×12×12 cm · mika · Shopee", image: "images/pack-b1b-cube.jpg", name: "B1B Clear Cube Bloom Box 12×12×12", note: "Mika bening, Rp10.150. Sesuai untuk NF Kecil (coaster Ø10 cm masih muat). Min. order 2 pcs.", href: B1B_CUBE, site: "Shopee · B1B Store" , tray: "no" },
+    { id: "b1bSquare20", desc: "20×9×20 cm · mika · Shopee", image: "images/pack-b1b-square-bloom.jpg", name: "B1B Clear Square Bloom Box 20×9×20", note: "Mika bening, Rp13.400. Cocok untuk NF Sedang atau Kecil Food. Dalam 9 cm, tray 12,3 cm tidak muat.", href: B1B_SQUARE, site: "Shopee · B1B Store" , tray: "no" },
+    { id: "b1bSquare25", desc: "25×10×25 cm · mika · Shopee", image: "images/pack-b1b-square-bloom.jpg", name: "B1B Clear Square Bloom Box 25×10×25", note: "Mika bening, Rp18.800. Dalam 10 cm, toples dan tray kemungkinan terlalu sempit.", href: B1B_SQUARE, site: "Shopee · B1B Store" , tray: "no" },
+    { id: "b1bGiftBag20", desc: "20×20×20 cm · jendela bening · Shopee", image: "images/pack-b1b-gift-bag.jpg", name: "B1B Square Clear Gift Bag 20×20×20", note: "Art paper dengan jendela bening, Rp11.600. Tray 19,7 cm muat, tetapi sangat pas (~3 mm); pohon dapat berdiri.", href: B1B_GIFTBAG, site: "Shopee · B1B Store" , tray: "pas" },
+    { id: "b1bBlurryL", desc: "23×13×27 cm · doff · Shopee", image: "images/pack-b1b-blurry.jpg", name: "B1B Blurry Round Handle Large 23×13×27", note: "Buram (doff), Rp14.700. Tray muat, pohon berdiri, tetapi isi hanya terlihat samar.", href: B1B_BLURRY, site: "Shopee · B1B Store" , tray: "yes" },
+    { id: "cellophane", desc: "80×100 cm · Berlian 90 · Rp2.922/lembar (isi 25)", image: "images/pack-cellophane.jpg", name: "Cellophane (plastik OPP)", note: "Plastik OPP 80×100 cm, Rp73.062 isi 25 (≈ Rp2.922/lembar). Bukan set plus pita.", href: CELLO, site: "Tokopedia · Plastik Opp Berlian 90" , tray: "yes" },
+    { id: "kraft", desc: "18×26 cm · Nusantara Packing", image: "images/pack-kraft-pouch.jpg", name: "Kraft pouch", note: "Standing pouch kraft window ziplock 18×26 cm, Rp1.150/pcs.", href: KRAFT, site: "Tokopedia · Nusantara Packing Indo" , tray: "no" },
+    { id: "window", desc: "25×25×12 cm · Felice · min. 5, incl. pita+kartu", image: "images/pack-window-box.jpg", name: "Window box", note: "Hardbox mika 25×25×12 cm, Rp14.720/pcs, minimal 5, sudah termasuk pita dan kartu (warna pita acak).", href: WINDOW, site: "Tokopedia · Felice Cake Box" , tray: "yes" },
+    { id: "premium", desc: "25×20×8 cm · Luxe Box", image: "images/pack-magnetic-box.jpg", name: "Premium magnetic box", note: "Hardbox magnet 25×20×8 cm, Rp45.500/pcs. Ada warna putih dan hijau emerald.", href: PREMIUM, site: "Tokopedia · Luxe Box" , tray: "yes" },
+    { id: "tote", desc: "20×10×25 cm · Lestari Jaya · Rp1.625/pcs (isi 12)", image: "images/pack-tote-bag.jpg", name: "Tote bag", note: "Paper bag kraft R6 20×10×25 cm, Rp19.500 isi 12 (≈ Rp1.625/pcs).", href: TOTE, site: "Tokopedia · Lestari Jaya Surabaya" , tray: "no" },
+    { id: "extras", desc: "Rp11.700 per paket · 1 bungkus 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk", image: "images/pack-extras-crinkle.jpg", name: "Ekstra (tissue, kartu, pita)", note: "Rp11.700 per paket (1 bungkus crinkle cream 200 g Rp35.000 untuk 3 paket; kartu & pita belum termasuk). Link tile ke listing crinkle.", href: EXTRAS, site: "Tokopedia · payperink.bsd" , tray: null }
   ];
 
   var DEFAULT_SETTINGS = {
@@ -394,11 +394,16 @@
     return true;
   }
 
-  function loadState() {
+  function loadState(rawOverride) {
     var st = { settings: cloneSettings(), packages: clonePackages(), mode: "food" };
     try {
-      var ls = typeof localStorage !== "undefined" ? localStorage : null;
-      var raw = ls ? ls.getItem(STORAGE_KEY) : null;
+      var raw = rawOverride;
+      if (raw == null) {
+        var ls = typeof localStorage !== "undefined" ? localStorage : null;
+        raw = ls ? ls.getItem(STORAGE_KEY) : null;
+      } else if (typeof raw !== "string") {
+        raw = JSON.stringify(raw);
+      }
       if (!raw) return st;
       var saved = JSON.parse(raw);
       if (saved && saved.settings) {
@@ -462,9 +467,10 @@
     saveTimer = setTimeout(function () {
       try {
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        flashSaved();
+        if (!(window.SRSync && window.SRSync.enabled())) flashSaved();
       } catch (e) { /* storage penuh/diblokir */ }
     }, 250);
+    if (window.SRSync && window.SRSync.enabled()) window.SRSync.schedulePush(state);
   }
   function flashSaved() {
     var el = document.getElementById("save-status");
@@ -648,8 +654,14 @@
       var name = withLink && it.href
         ? h("a", { class: "tile-name tile-link", href: it.href, target: "_blank", rel: "noopener noreferrer", title: "Buka di " + (it.site || "toko") }, [it.name, h("span", { class: "ext", "aria-hidden": "true", text: " ↗" })])
         : h("div", { class: "tile-name", text: it.name });
+      var badge = null;
+      if (it.tray) {
+        var trayLabel = it.tray === "yes" ? "Muat tray" : it.tray === "pas" ? "Muat tray (pas)" : "Tidak muat tray";
+        var trayClass = it.tray === "yes" ? "is-yes" : it.tray === "pas" ? "is-pas" : "is-no";
+        badge = h("span", { class: "tile-tray " + trayClass, text: trayLabel });
+      }
       var tile = h("div", { class: "print-tile price-tile" + (it.unconfirmed ? " is-unconfirmed" : "") }, [
-        img, name,
+        img, badge, name,
         h("div", { class: "tile-meta", text: it.desc || "" }),
         moneyBox(mi)
       ]);
@@ -951,13 +963,26 @@
     });
   });
   document.getElementById("reset").addEventListener("click", function () {
-    if (!window.confirm("Kembalikan semua isian ke default? Perubahan yang tersimpan akan dihapus.")) return;
+    var syncOn = window.SRSync && window.SRSync.enabled();
+    var msg = syncOn
+      ? "Kembalikan semua isian ke default? Data bersama di Google Sheet juga akan direset untuk semua orang."
+      : "Kembalikan semua isian ke default? Perubahan yang tersimpan akan dihapus.";
+    if (!window.confirm(msg)) return;
     try { window.localStorage.removeItem(STORAGE_KEY); } catch (e) {}
     clearTimeout(saveTimer);
     state = { settings: cloneSettings(), packages: clonePackages(), mode: "food" };
     renderAll();
+    if (syncOn) window.SRSync.pushNow(state);
   });
 
   renderAll();
-  window.__kalkulator = { core: core, getState: function () { return state; } };
+  window.__kalkulator = {
+    core: core,
+    getState: function () { return state; },
+    applyState: function (raw) {
+      state = loadState(typeof raw === "string" ? raw : JSON.stringify(raw));
+      try { window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+      renderAll();
+    }
+  };
 })();

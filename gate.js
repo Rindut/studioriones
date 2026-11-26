@@ -24,7 +24,7 @@
     gate.innerHTML =
       '<div class="gate-card">' +
         '<img class="gate-logo" src="images/logo-studio-riones.png" width="140" height="140" alt="Studio Riones">' +
-        '<h1 id="gate-title" class="gate-title">Paket Hampers</h1>' +
+        '<h1 id="gate-title" class="gate-title">Ruang Racik</h1>' +
         '<p class="gate-lead">Masukkan kata sandi untuk membuka kalkulator paket.</p>' +
         '<form id="gate-form" action="#" method="post" autocomplete="off">' +
           '<label for="gate-pass">Kata sandi</label>' +

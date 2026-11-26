@@ -1,6 +1,6 @@
 # Handoff · Kalkulator Studio Riones
 
-Catatan serah terima buat siapa pun (orang atau bot) yang lanjutin project ini. Status per 25 Nov 2026, versi aset `?v=29`.
+Catatan serah terima buat siapa pun (orang atau bot) yang lanjutin project ini. Status per 25 Nov 2026, versi aset `?v=33`.
 
 ## 1. Tujuan project
 
@@ -19,7 +19,7 @@ python3 -m http.server 8000
 
 - Landing page: http://localhost:8000
 - Detail Paket Hutan: http://localhost:8000/hutan.html (`sore.html` otomatis redirect ke sini)
-- CSS/JS dipanggil pakai `?v=N` (sekarang **`?v=29`**) biar cache browser nggak nyangkut. Tiap kali `style.css`, `app.js`, `landing.js`, atau `gate.js` diubah, naikin angkanya di `index.html` **dan** `hutan.html`.
+- CSS/JS dipanggil pakai `?v=N` (sekarang **`?v=33`**) biar cache browser nggak nyangkut. Tiap kali `style.css`, `app.js`, `landing.js`, atau `gate.js` diubah, naikin angkanya di `index.html` **dan** `hutan.html`.
 - Ada gerbang kata sandi (`gate.js`, password **1616**, disimpan di `sessionStorage` key `studio-riones-gate`) di `index.html` dan `hutan.html`. Ini cek di browser doang, bukan proteksi server.
 - Kalau tampilannya masih versi lama: hard refresh `Cmd+Shift+R` (Mac) atau `Ctrl+Shift+R` (Windows).
 - Data isian disimpan di `localStorage` browser (key `studio-riones-kalkulator-v1`). Tombol **Reset ke default** ngapus data itu.
@@ -34,6 +34,11 @@ python3 -m http.server 8000
 | `app.js` | Semua data (barang, harga default, link, isi paket), rumus, localStorage, dan render halaman detail. Fungsi `fillSummaryTable` dipakai **dua halaman** (opsi `showModal` / `showMargin`). Angka yang tampil di kedua halaman tetap dari state yang sama, tapi tabel landing hanya menampilkan thumbnail, harga jual, dan waktu. |
 | `landing.js` | Ngisi tabel ringkasan di landing pakai fungsi yang sama dari `app.js`. |
 | `gate.js` | Layar kata sandi `1616` sebelum landing dan halaman detail. |
+| `config.js` | `SYNC_URL` dan `SYNC_TOKEN` untuk Google Sheet. Kosong = sinkronisasi mati. |
+| `sync.js` | Baca/tulis data bersama ke Apps Script, plus status formal. |
+| `apps-script/Code.gs` | Backend Google Apps Script (bukan file yang di-serve ke pengunjung). |
+| `SETUP-GOOGLE-SHEET.md` | Langkah setup Sheet + deploy Web app, bahasa santai buat gue. |
+| `images/logo-studio-riones-light.png` | Logo transparan warna krem + matahari kuning, buat header olive. |
 | `images/logo-studio-riones.png`, `images/favicon.png`, `images/apple-touch-icon.png` | Logo brand, favicon 64px, dan ikon Apple 180px. |
 | `style.css` | Semua styling. Font: **Fraunces** (judul) + **Plus Jakarta Sans** (teks, tabel, angka), dari Google Fonts. |
 | `images/` | Foto barang cetak asli (`tray`, `eggcup`, `phonestand`, `clip`, `tree`, `coaster`, `set`), foto kue dr cookies (`food-*.jpg`), dan foto kemasan (`pack-*.jpg`). |
@@ -149,7 +154,7 @@ Ringkasan default (kelompok **No food di kiri, Food di kanan**). Di **hutan.html
 - Terus: `cd /workspace/srk-notes && for t in redir22 test10 test12 test-popup test-sore test-landing2 links13 align16 tiles17 lic17; do node $t.js; done`
 - Cakupannya: angka default Ringkasan, sinkron landing ↔ detail, harga filamen per kg, popup pilih barang, simpan & reset, tile kue/kemasan + link, checkbox lisensi, redirect `sore.html`, migrasi data lama, gerbang kata sandi, dan nggak ada overflow di HP.
 - Tes harus unlock gerbang dulu (`sessionStorage` `studio-riones-gate` = `1` lewat `addInitScript`). Jangan anggap lulus kalau tes masih ketahan di layar password.
-- Status terakhir: **semua lulus** (v=29). v29 juga: bahasa formal di semua teks menghadap user, logo+favicon, thumbnail landing 56px, margin di bawah modal, gerbang password 1616, dan tampilan HP dirapikan.
+- Status terakhir: **semua lulus** (v=33). v29 juga: bahasa formal di semua teks menghadap user, logo+favicon, thumbnail landing 56px, margin di bawah modal, gerbang password 1616, dan tampilan HP dirapikan. v30: di tile kemasan ada tanda Muat tray / Tidak muat tray / Muat tray (pas) di bawah foto (Ekstra tanpa tanda). v31: sinkron Google Sheet (kalau config diisi), logo header transparan krem, aksen kuning matahari yang halus. v32: judul site jadi **Ruang Racik** (bukan Paket Hampers). Logo gerbang dan favicon pakai versi terracotta (garis rumah #C26A4A). v33: logo dan judul sejajar di header olive; logo header pakai versi terracotta di lencana krem (#F3EDE2); deskripsi formal dipindah ke atas kartu paket di halaman awal (bukan di dalam header).
 
 ## 9. Yang masih terbuka
 
