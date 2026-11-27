@@ -107,6 +107,27 @@ input:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visibl
 .qty::-webkit-outer-spin-button, .qty::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .badge { font-size: 10px; letter-spacing: .02em; text-transform: uppercase; color: var(--cream); background: var(--olive); border-radius: 999px; padding: 1px 7px; font-weight: 500; }
 .badge.est { background: #b98a2b; }
+.badge.rec {
+  background: #e6efe0;
+  color: var(--olive-dark);
+  font-weight: 600;
+}
+.pack-rec-why {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--olive-dark);
+  line-height: 1.3;
+}
+.pack-lie {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: var(--muted);
+  background: #eeebe3;
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+
 
 .totals { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; }
 .tline { display: flex; justify-content: space-between; gap: 8px; }
