@@ -89,7 +89,8 @@
     usdIdr: "16800",
     eggLicense: "0",
     myroLicense: "0",
-    marginTarget: "60"
+    marginTarget: "60",
+    foodMarkup: 10000
   };
 
   var DEFAULT_PACKAGES = [
@@ -150,11 +151,28 @@
     var base = Math.ceil((n - 9000) / 10000) * 10000 + 9000;
     return base < n ? base + 10000 : base;
   }
-  function suggestedPrice(modal, marginPct) {
-    if (modal <= 0) return 0;
-    var t = Math.min(99, Math.max(0, marginPct)) / 100;
-    if (t <= 0) return roundUpTo9k(modal);
-    return roundUpTo9k(modal / (1 - t));
+  function foodMarkupOf(s) {
+    var n = s && s.foodMarkup;
+    if (typeof n === "string") n = parseIdr(n);
+    if (typeof n !== "number" || !isFinite(n) || n < 0) return 10000;
+    return Math.round(n);
+  }
+  // Target margin hanya pada modal non-food; kue = modal kue + markup tetap.
+  // foodCost 0 → sama dengan rumus lama: roundUpTo9k(nonFoodModal / (1 − target)).
+  function suggestedPrice(nonFoodModal, marginPct, foodCost, foodMarkup) {
+    var food = (typeof foodCost === "number" && isFinite(foodCost) && foodCost > 0) ? foodCost : 0;
+    var markup = 0;
+    if (food > 0 && typeof foodMarkup === "number" && isFinite(foodMarkup) && foodMarkup >= 0) {
+      markup = foodMarkup;
+    }
+    var t = Math.min(99, Math.max(0, Number(marginPct) || 0)) / 100;
+    var coreAmt = 0;
+    if (nonFoodModal > 0) {
+      coreAmt = t <= 0 ? nonFoodModal : nonFoodModal / (1 - t);
+    }
+    var total = coreAmt + food + markup;
+    if (total <= 0) return 0;
+    return roundUpTo9k(total);
   }
   function qtyOf(pkg, id) {
     var q = pkg.items[id];
@@ -251,12 +269,14 @@
     PACK_ITEMS.forEach(function (it) { pack += qtyOf(pkg, it.id) * (s.pack[it.id] || 0); });
     var lic = licensesFor(pkg, s);
     var labor = typeof pkg.labor === "number" && isFinite(pkg.labor) ? Math.max(0, Math.round(pkg.labor)) : 0;
-    var modal = print + food + pack + lic.total + labor;
-    var suggested = suggestedPrice(modal, parseDecimal(s.marginTarget));
+    var nonFood = print + pack + lic.total + labor;
+    var modal = nonFood + food;
+    var markup = food > 0 ? foodMarkupOf(s) : 0;
+    var suggested = suggestedPrice(nonFood, parseDecimal(s.marginTarget), food, markup);
     var price = pkg.priceMode === "margin" ? suggested : pkg.manualPrice;
     var profit = price - modal;
     var margin = price > 0 ? (profit / price) * 100 : 0;
-    return { print: print, food: food, pack: pack, licenses: lic, labor: labor, modal: modal, grams: grams, minutes: minutes, price: price, profit: profit, margin: margin, suggested: suggested };
+    return { print: print, food: food, pack: pack, licenses: lic, labor: labor, modal: modal, nonFood: nonFood, foodMarkup: markup, grams: grams, minutes: minutes, price: price, profit: profit, margin: margin, suggested: suggested };
   }
 
   // Satu-satunya fungsi pengisi tabel ringkasan Paket Hutan (Food + No food).
@@ -419,7 +439,8 @@
     PRINT_ITEMS: PRINT_ITEMS, FOOD_ITEMS: FOOD_ITEMS, PACK_ITEMS: PACK_ITEMS,
     DEFAULT_SETTINGS: DEFAULT_SETTINGS, DEFAULT_PACKAGES: DEFAULT_PACKAGES,
     cloneSettings: cloneSettings, clonePackages: clonePackages, printCost: printCost, syncPrint: syncPrint,
-    breakdown: breakdown, licenseUnitCosts: licenseUnitCosts, formatRp: formatRp, formatPct: formatPct,
+    breakdown: breakdown, suggestedPrice: suggestedPrice, roundUpTo9k: roundUpTo9k, foodMarkupOf: foodMarkupOf,
+    licenseUnitCosts: licenseUnitCosts, formatRp: formatRp, formatPct: formatPct,
     formatMinutes: formatMinutes, parseIdr: parseIdr,
     summaryRows: summaryRows, fillSummaryTable: fillSummaryTable,
     packageNeeds: packageNeeds, itemSize: itemSize, contentSize: contentSize, packVerdict: packVerdict, qtyOf: qtyOf
@@ -488,8 +509,14 @@
         });
         else if (s.licensesOn === false) Object.keys(st.settings.licOn).forEach(function (k) { st.settings.licOn[k] = false; }); // toggle lama
         if (typeof s.plaPerKg === "number" && isFinite(s.plaPerKg) && s.plaPerKg >= 0) st.settings.plaPerKg = s.plaPerKg;
+        if (typeof s.foodMarkup === "number" && isFinite(s.foodMarkup) && s.foodMarkup >= 0) {
+          st.settings.foodMarkup = Math.round(s.foodMarkup);
+        } else if (typeof s.foodMarkup === "string" && s.foodMarkup.trim()) {
+          var fm = parseIdr(s.foodMarkup);
+          if (isFinite(fm) && fm >= 0) st.settings.foodMarkup = Math.round(fm);
+        }
         Object.keys(st.settings).forEach(function (k) {
-          if (k === "print" || k === "food" || k === "pack" || k === "plaPerKg" || k === "printOverride" || k === "licOn") return;
+          if (k === "print" || k === "food" || k === "pack" || k === "plaPerKg" || k === "printOverride" || k === "licOn" || k === "foodMarkup") return;
           if (k in s && typeof s[k] === typeof st.settings[k]) st.settings[k] = s[k];
         });
       }
@@ -593,7 +620,7 @@
 
   function field(label, value, onInput, opts) {
     opts = opts || {};
-    var id = "f-" + Math.random().toString(36).slice(2, 9);
+    var id = opts.id || ("f-" + Math.random().toString(36).slice(2, 9));
     var control;
     if (opts.money) {
       var mi = moneyInput({ id: id }, onInput);
@@ -639,6 +666,12 @@
     root.appendChild(h("div", { class: "grid g2 asumsi-grid" }, [
       field("Target margin, persen", s.marginTarget, function (v) { setField("marginTarget", v); }, { decimal: true }),
       field("Set per bulan", s.setsPerMonth, function (v) { setField("setsPerMonth", v); }, { note: "Perkiraan jumlah paket terjual per bulan, untuk membagi iuran lisensi." })
+    ]));
+    root.appendChild(h("div", { class: "asumsi-grid" }, [
+      field("Markup kue titipan (per paket)", s.foodMarkup, function (n) {
+        state.settings.foodMarkup = Math.max(0, Math.round(Number(n) || 0));
+        recalc(); save();
+      }, { money: true, id: "food-markup", note: "Kue dihitung harga modal + markup tetap, tidak ikut target margin." })
     ]));
     root.appendChild(h("div", { class: "asumsi-info asumsi-labor" }, [
       h("div", { class: "asumsi-labor-title", text: "Tenaga kerja default (Food & No food)" }),
@@ -970,6 +1003,7 @@
         moneyBox(refs.manualInput = moneyInput({ "aria-label": "Harga jual " + pkg.name }, function (n) { pkg.manualPrice = Math.max(0, Math.round(n)); updateCard(pkg); renderSummary(); save(); }))
       ]);
       refs.suggested = h("div", { class: "suggested" });
+      refs.foodNote = h("div", { class: "food-suggest-note", hidden: true });
       refs.price = h("div", { class: "price" });
       refs.margin = h("span"); refs.profit = h("span");
       refs.pills = [priceBtn(pkg, "manual", "Harga manual"), priceBtn(pkg, "margin", "Target margin")];
@@ -980,7 +1014,7 @@
         refs.laborWrap,
         refs.totals,
         h("div", { class: "pills" }, refs.pills),
-        refs.manualWrap, refs.suggested, refs.price,
+        refs.manualWrap, refs.suggested, refs.foodNote, refs.price,
         h("div", { class: "pm" }, [refs.margin, refs.profit])
       ]));
       refs.card = card;
@@ -1011,6 +1045,15 @@
     if (document.activeElement !== refs.laborInput) refs.laborInput.setValue(typeof pkg.labor === "number" ? pkg.labor : 0);
     if (document.activeElement !== refs.manualInput) refs.manualInput.setValue(pkg.manualPrice);
     refs.suggested.textContent = "Harga disarankan (dibulatkan ke ...9.000): " + formatRp(b.suggested);
+    if (refs.foodNote) {
+      if (pkg.mode === "food" && pkg.priceMode === "margin" && b.food > 0) {
+        refs.foodNote.hidden = false;
+        refs.foodNote.textContent = "Kue: " + formatRp(b.food) + " + markup " + formatRp(b.foodMarkup);
+      } else {
+        refs.foodNote.hidden = true;
+        refs.foodNote.textContent = "";
+      }
+    }
     refs.price.textContent = formatRp(b.price);
     refs.margin.textContent = "Margin " + formatPct(b.margin);
     refs.profit.textContent = "Laba " + formatRp(b.profit);

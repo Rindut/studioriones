@@ -142,6 +142,7 @@ input:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visibl
 .manual label, .labor-field label { color: var(--muted); font-size: 13px; }
 .manual input, .labor-field input { width: 130px; height: 34px; }
 .suggested { margin-top: 10px; color: var(--muted); font-size: 13px; }
+.food-suggest-note { margin-top: 4px; color: var(--muted); font-size: 13px; }
 .price { margin-top: 16px; background: var(--olive); color: var(--cream); border-radius: 999px; padding: 10px 16px; text-align: center; font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .pm { margin-top: 8px; display: flex; justify-content: space-between; gap: 8px; font-size: 13px; }
 .pm span:first-child { color: var(--muted); }
@@ -488,7 +489,7 @@ h3 { font-size: 22px; }
 .asumsi-labor-note { margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--muted); }
 
 
-/* v33: logo terracotta di lencana krem, sejajar dengan judul */
+/* v33: logo di lencana krem, sejajar dengan judul. v37: logo baru (rumah pink, matahari, RIONES). */
 .hero-brand {
   display: flex;
   align-items: center;
@@ -508,7 +509,7 @@ h3 { font-size: 22px; }
   box-shadow: none;
 }
 .hero .brand-logo img {
-  height: 56px;
+  height: 64px;
   width: auto;
   display: block;
 }
@@ -526,7 +527,7 @@ h3 { font-size: 22px; }
 }
 @media (max-width: 640px) {
   .hero .brand-logo { padding: 5px 6px; border-radius: 10px; }
-  .hero .brand-logo img { height: 44px; }
+  .hero .brand-logo img { height: 50px; }
   .hero-brand { gap: 12px; }
   .hero-brand h1,
   .hero-brand .brand { font-size: clamp(26px, 7vw, 36px); }
@@ -605,8 +606,8 @@ html.gate-lock body { overflow: hidden; height: 100%; }
   box-shadow: 0 8px 32px rgba(74, 88, 58, .10);
 }
 #site-gate .gate-logo {
-  width: 140px;
-  height: 140px;
+  width: 220px;
+  height: auto;
   object-fit: contain;
   margin: 0 auto 12px;
   display: block;
@@ -650,7 +651,7 @@ html.gate-lock body { overflow: hidden; height: 100%; }
 @media (max-width: 640px) {
   #site-gate { padding: 16px; align-items: flex-start; padding-top: 48px; }
   #site-gate .gate-card { padding: 24px 18px 22px; }
-  #site-gate .gate-logo { width: 140px; height: 140px; }
+  #site-gate .gate-logo { width: 180px; height: auto; }
   h1 { font-size: clamp(28px, 8vw, 40px); }
   h2 { font-size: 24px; }
   .pkg-head h2 { font-size: 26px; }
